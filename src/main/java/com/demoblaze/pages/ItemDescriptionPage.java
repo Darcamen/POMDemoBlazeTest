@@ -17,15 +17,12 @@ public class ItemDescriptionPage extends BaseClass {
     @FindBy(css = ".btn.btn-success.btn-lg")
     WebElement addToCartBtn;
 
+    @FindBy(xpath = "//a[@class='nav-link'][1]")
+    public WebElement homeOptn;
+
     public void dynamicAddToCart(){
-        System.out.println("1");
         handlingStaleElementError(addToCartBtn);
-        System.out.println("2");
         driver.navigate().refresh();
-        System.out.println("afterRefresh");
-        handlingStaleElementError(driver.switchTo().alert());
-
-
+        homeOptn.click();
     }
-
 }

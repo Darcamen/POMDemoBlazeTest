@@ -3,7 +3,6 @@ package com.demoblaze.tests;
 import com.demoblaze.base.BaseClass;
 import com.demoblaze.pages.HomePage;
 import com.demoblaze.pages.ItemDescriptionPage;
-import com.demoblaze.pages.LoggedUserPage;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -27,8 +26,11 @@ public class CartValidationTest extends BaseClass {
     public void itemToCartTest() {
         homePage.userLogin(propFile.getProperty("username"),propFile.getProperty("password"));
         homePage.selectCategory();
-        System.out.println("beforeSelector");
         dynamicItemSelector(propFile.getProperty("phoneModel1"));
         itemDescriptionPage.dynamicAddToCart();
+        dynamicItemSelector(propFile.getProperty("phoneModel2"));
+        itemDescriptionPage.dynamicAddToCart();
+        homePage.clickOnCartOptn();
+
     }
 }

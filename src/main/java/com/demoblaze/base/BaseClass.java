@@ -55,11 +55,6 @@ public class BaseClass {
         new WebDriverWait(driver,Duration.ofSeconds(TestUtils.WEBDRIVER_WAIT)).ignoring(NoAlertPresentException.class).until(ExpectedConditions.alertIsPresent());
     }
 
-    public static void waitForClick(WebElement element){
-        new WebDriverWait(driver,Duration.ofSeconds(TestUtils.WEBDRIVER_WAIT)).ignoring(StaleElementReferenceException.class).until(ExpectedConditions.elementToBeClickable(element));
-        new WebDriverWait(driver,Duration.ofSeconds(TestUtils.WEBDRIVER_WAIT)).until(ExpectedConditions.elementToBeClickable(element));
-    }
-
     public void handlingStaleElementError(WebElement element) {
         boolean staleElementError = true;
 
@@ -76,8 +71,10 @@ public class BaseClass {
         public void handlingStaleElementError(Alert alert) {
 
             try {
+                System.out.println();alert.getText();
                 alert.dismiss();
             } catch (StaleElementReferenceException e) {
+                System.out.println();alert.getText();
                 alert.dismiss();
             }
 

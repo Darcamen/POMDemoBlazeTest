@@ -25,6 +25,9 @@ public class HomePage extends BaseClass {
     @FindBy(xpath = "//a[@id='signin2']")
     public WebElement signUpOptn;
 
+    @FindBy(xpath = "//a[@class='nav-link'][1]")
+    public WebElement homeOptn;
+
     @FindBy(css = "h5#signInModalLabel")
     public WebElement signUpMdl;
 
@@ -57,6 +60,11 @@ public class HomePage extends BaseClass {
 
     @FindBy(xpath = "//a[@id='itemc'][1]")
     public WebElement phonesCategory;
+
+    @FindBy(css = "a#cartur")
+    public WebElement cartOptn;
+
+
 
     //Action Methods
 
@@ -93,5 +101,9 @@ public class HomePage extends BaseClass {
 
     public void selectCategory() throws StaleElementReferenceException {
         handlingStaleElementError(phonesCategory);
+    }
+
+    public void clickOnCartOptn(){
+        cartOptn.click();
     }
 }
